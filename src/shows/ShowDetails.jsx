@@ -4,7 +4,7 @@ import EpisodeDetails from "../episodes/EpisodeDetails.jsx";
 import "./shows.css";
 
 /** Allows users to browse through the episodes of the given show */
-export default function ShowDetails() {
+export default function ShowDetails({ show }) {
   const [selectedEpisode, setSelectedEpisode] = useState(null);
 
   if (!show) {
@@ -15,7 +15,8 @@ export default function ShowDetails() {
     );
   }
 
-  return <div className="show-details">
+  return (
+  <div className="show-details">
     <EpisodeList
         name={show.name}
         episodes={show.episodes}
@@ -24,5 +25,5 @@ export default function ShowDetails() {
       />
       <EpisodeDetails episode={selectedEpisode} />
   </div>
-  ;
+  );
 }
